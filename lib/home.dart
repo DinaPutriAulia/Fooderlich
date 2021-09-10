@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'screens/explore_screen.dart';
 import 'screens/recipes_screen.dart';
 import 'screens/grocery_screen.dart';
+import 'screens/search_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -29,8 +31,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text('Fooderlich',
-                style: Theme.of(context).textTheme.headline6)),
+          title:
+              Text('Fooderlich', style: Theme.of(context).textTheme.headline6),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  showSearch(context: context, delegate: Search());
+                },
+                icon: const Icon(Icons.search))
+          ],
+        ),
         body: pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
             selectedItemColor:
