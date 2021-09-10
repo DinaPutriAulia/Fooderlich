@@ -7,14 +7,14 @@ class Search extends SearchDelegate<String> {
 
   void addSearchHistory(String value) async {
     final prefs = await SharedPreferences.getInstance();
-    searchHistory = prefs.getStringList('browseHistory') ?? [];
+    searchHistory = prefs.getStringList('searchHistory') ?? [];
     searchHistory.insert(0, value);
-    await prefs.setStringList('browseHistory', searchHistory);
+    await prefs.setStringList('searchHistory', searchHistory);
   }
 
   void getSearchHistory() async {
     final prefs = await SharedPreferences.getInstance();
-    searchHistory = prefs.getStringList('browseHistory') ?? [];
+    searchHistory = prefs.getStringList('searchHistory') ?? [];
   }
 
   @override
