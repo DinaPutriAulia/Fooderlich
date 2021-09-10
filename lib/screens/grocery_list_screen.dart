@@ -4,14 +4,16 @@ import '../models/models.dart';
 import 'grocery_item_screen.dart';
 
 class GroceryListScreen extends StatelessWidget {
-  final GroceryManager manager;
   const GroceryListScreen({Key key, this.manager}) : super(key: key);
+
+  final GroceryManager manager;
+
   @override
   Widget build(BuildContext context) {
     final groceryItems = manager.groceryItems;
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: ListView.separated( 
+      child: ListView.separated(
           itemCount: groceryItems.length,
           itemBuilder: (context, index) {
             final item = groceryItems[index];
